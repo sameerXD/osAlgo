@@ -1,0 +1,24 @@
+import java.util.*;
+
+
+public static void solution(String str){
+  int fact = factorial(str.length);
+  System.out.println(fact);
+}
+
+public static int factorial(int n){
+  int fact = 1;
+  
+  while(n>=1){
+   fact *= n;
+   n--;
+  }
+  return fact;
+}
+class OermutationString{
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    String str = scn.nextLine(System.in);
+    solution(str);
+  }
+}

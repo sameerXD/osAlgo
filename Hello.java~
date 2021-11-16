@@ -1,0 +1,61 @@
+import java.util.*;
+class Hello{
+  
+  public static void display (int[] arr, int[] sum){
+         for(int j =0; j<arr.length; j++){
+           if(sum[j]==1){
+             System.out.print(arr[j]);
+           }else{
+             System.out.print("-");
+           }
+       
+     }
+         System.out.println();
+  }
+  
+  public static void main(String[] args){
+   Scanner scn = new Scanner(System.in);
+   int n = scn.nextInt();
+   
+   int[] arr = new int[n];
+   
+   for(int i =0 ; i<n ;i++){
+     arr[i]= scn.nextInt();
+   }
+   
+   int[] sum =new int[n];
+   display(arr, sum);
+   int n1 = (int)Math.pow(2,n);
+   int[] arr1 = new int[n1];
+   int carry = 0;
+   
+   for(int i =0; i<n1-1; i++){
+     int s = sum[n-1] + 1;
+     if(s>1){
+       sum[n-1] = 0;
+       carry = 1;
+       
+       int remaining = n-2;
+       while(carry!=0){
+         s = sum[remaining] + carry;
+          carry--;
+          
+         if(s>1){
+           carry=1;
+           sum[remaining] = 0;
+         }else{
+           sum[remaining] = s;
+         }
+         remaining--;
+        
+       }
+     }else{
+       sum[n-1] = s;
+     }
+     
+     display(arr, sum);
+     
+      
+   }
+  }
+}

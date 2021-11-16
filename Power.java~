@@ -1,0 +1,21 @@
+import java.util.*;
+
+class  Power {
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner scn = new Scanner(System.in);
+        int x = scn.nextInt();
+        int n = scn.nextInt();
+        power(x,n);
+    }
+
+    public static int power(int x, int n){
+        if(n==0){
+            return 0;
+        }
+        
+        int sol =x* power(x, n-1);
+        
+        return sol;
+    }
+}
